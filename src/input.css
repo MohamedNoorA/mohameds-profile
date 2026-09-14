@@ -1,67 +1,114 @@
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
 @tailwind base;
-
-@layer base {
-  :root {
-    --primary-green: #4CAF50;
-    --dark-green: #388E3C;
-    --light-green: #81C784;
-    --background: #F8F8F8;
-    --text-color: #2D3748;
-    --accent-blue: #2196F3;
-    --accent-red: #EF5350;
-    --accent-yellow: #FFD700;
-    --project-card-bg: #fefae0;
-  }
-
-  .dark {
-    --primary-green: #66BB6A;
-    --dark-green: #4CAF50;
-    --light-green: #9CCC65;
-    --background: #1A202C;
-    --text-color: #E2E8F0;
-    --accent-blue: #64B5F6;
-    --accent-red: #E57373;
-    --accent-yellow: #FFEA00;
-    --project-card-bg: #2D3748;
-  }
-}
-
 @tailwind components;
 @tailwind utilities;
 
-@keyframes name-pop-in {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-    color: #4CAF50; /* Start primary-green */
+@layer base {
+  :root {
+    --bg-primary: #e3e4e8;
+    --bg-surface: #d9dbe1;
+    --bg-surface-subtle: #ced1d9;
+    --border-color: rgba(15, 23, 42, 0.075);
+    --border-hover: rgba(15, 23, 42, 0.16);
+    --text-primary: #09090b;
+    --text-secondary: #20232b;
+    --text-muted: #484c57;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-subtle: rgba(37, 99, 235, 0.08);
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    color: #2D3748; /* End dark-text */
+
+  .dark {
+    --bg-primary: #090a0d;
+    --bg-surface: #101115;
+    --bg-surface-subtle: #16171d;
+    --border-color: rgba(255, 255, 255, 0.07);
+    --border-hover: rgba(255, 255, 255, 0.15);
+    --text-primary: #f4f4f6;
+    --text-secondary: #a0a3ad;
+    --text-muted: #717582;
+    --accent: #6366f1;
+    --accent-hover: #818cf8;
+    --accent-subtle: rgba(99, 102, 241, 0.12);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Ensure media elements are strictly constrained */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent text from overflowing containers */
+  h1, h2, h3, h4, h5, h6, p, span, a, button, pre, code {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-@keyframes shine-colors {
-  0% { color: red; }
-  16.67% { color: red; } /* Hold red */
-  25% { color: limegreen; }
-  41.67% { color: limegreen; } /* Hold limegreen */
-  50% { color: blue; }
-  66.67% { color: blue; } /* Hold blue */
-  75% { color: yellow; }
-  91.67% { color: yellow; } /* Hold yellow */
-  100% { color: red; }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
 }
 
-.animated-name {
-  display: inline-block; /* Allows transform on inline elements */
-  animation: name-pop-in 3s ease-out forwards; /* Apply animation */
-  /* Add a slight delay for each word */
-  animation-delay: var(--delay);
+@layer components {
+  .surface-card {
+    border-width: 1px;
+    border-color: var(--border-color);
+    background: color-mix(in srgb, var(--bg-surface) 90%, transparent);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.035);
+  }
+
+  .dark .surface-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+  }
 }

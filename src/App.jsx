@@ -7,41 +7,67 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home'); // State to track active section
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    // Disable body scrolling
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'unset'; // Re-enable on unmount
+    const sections = ['home', 'about', 'projects', 'contact'];
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
     };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navigateTo = (sectionId) => {
     setActiveSection(sectionId);
-  };
-
-  // Conditionally render sections based on activeSection
-  const renderSection = () => {
-    switch (activeSection) {
-      case 'home':
-        return <Hero navigateTo={navigateTo} />;
-      case 'about':
-        return <About />;
-      case 'projects':
-        return <Projects />;
-      case 'contact':
-        return <Contact />;
-      default:
-        return <Hero navigateTo={navigateTo} />; // Default to home
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="bg-background h-screen flex flex-col">
-      <Navbar navigateTo={navigateTo} />
-      <div className="flex-grow pt-24">
-        {renderSection()}
+    <div className="relative min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-background text-primary flex flex-col justify-between selection:bg-indigo-500/20 selection:text-indigo-400">
+      {/* Background Image: One image as atmospheric background image */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+        <picture>
+          <source srcSet="/images/bgimage.avif" type="image/avif" />
+          <img
+            src="/images/bgimage.jpg"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover object-center opacity-[0.14] dark:opacity-[0.16] filter grayscale-[55%]"
+          />
+        </picture>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/78 via-background/90 to-background/96" />
+      </div>
+
+      {/* Persistent Navigation Bar: Sticky & interactive across all pages */}
+      <Navbar navigateTo={navigateTo} activeSection={activeSection} />
+
+      {/* Continuous Smooth Scroll Across All Sections */}
+      <main className="relative z-10 flex-grow w-full overflow-x-hidden">
+        <Hero navigateTo={navigateTo} />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+
+      {/* Clean Footer without bottom hr line */}
+      <div className="relative z-10">
+        <Footer />
       </div>
     </div>
   );
