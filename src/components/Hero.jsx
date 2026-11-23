@@ -28,7 +28,7 @@ const Hero = ({ navigateTo }) => {
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 space-y-6 text-left"
+            className="lg:col-span-6 space-y-6 text-center lg:text-left"
           >
             {/* Professional Headline */}
             <div className="space-y-3">
@@ -52,10 +52,10 @@ const Hero = ({ navigateTo }) => {
             </p>
 
             {/* Actions & Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-1">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
               <button
                 onClick={() => handleNav('projects')}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-primary text-background hover:opacity-90 transition-all duration-150 transform hover:-translate-y-0.5 shadow-xs"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-primary text-background hover:opacity-90 transition-colors duration-150 shadow-xs"
               >
                 <span>Explore My Work</span>
                 <FaArrowRight className="w-3.5 h-3.5" />
@@ -65,7 +65,7 @@ const Hero = ({ navigateTo }) => {
                 href="/MOHAMED NOOR ADAN-cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-surface text-primary border border-border hover:border-border-hover hover:bg-surface-subtle transition-all duration-150 transform hover:-translate-y-0.5 shadow-xs"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-surface text-primary border border-border hover:border-border-hover hover:bg-surface-subtle transition-colors duration-150 shadow-xs"
               >
                 <FaDownload className="w-3.5 h-3.5 text-muted" />
                 <span>Download CV</span>
@@ -80,7 +80,7 @@ const Hero = ({ navigateTo }) => {
             </div>
 
             {/* Social Connect without harsh divider line */}
-            <div className="pt-2 flex items-center space-x-5">
+            <div className="pt-2 flex items-center justify-center lg:justify-start space-x-5">
               <span className="text-xs font-mono text-muted uppercase tracking-wider">Connect:</span>
               <a
                 href="https://github.com/MohamedNoorA"
@@ -112,7 +112,7 @@ const Hero = ({ navigateTo }) => {
             </div>
             <button
               onClick={() => handleNav('about')}
-              className="group inline-flex items-center gap-2 pt-3 text-xs font-mono uppercase tracking-[0.18em] text-muted hover:text-primary transition-colors"
+              className="group inline-flex items-center gap-2 pt-3 text-xs font-mono uppercase tracking-[0.18em] text-muted hover:text-primary transition-colors lg:justify-start"
             >
               <span className="h-px w-7 bg-current transition-all group-hover:w-11" />
               Scroll to explore

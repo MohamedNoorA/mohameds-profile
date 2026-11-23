@@ -11,7 +11,7 @@ const HeroVisual = () => {
         initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full rounded-xl border border-border/40 bg-surface/80 backdrop-blur-xs shadow-xs overflow-hidden"
+        className="surface-card w-full rounded-xl backdrop-blur-xs overflow-hidden"
       >
         {/* Header Bar */}
         <div className="flex items-center justify-between px-4 py-2 border-b border-border/30 bg-surface-subtle/40 text-[11px] font-mono text-muted">
@@ -59,7 +59,7 @@ const HeroVisual = () => {
         initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-        className="group relative rounded-xl border border-border/40 bg-surface/80 backdrop-blur-xs overflow-hidden shadow-xs"
+        className="surface-card group relative rounded-xl backdrop-blur-xs overflow-hidden"
       >
         <div className="aspect-[16/9] w-full overflow-hidden bg-surface-subtle">
           <picture>

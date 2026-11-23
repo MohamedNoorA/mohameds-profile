@@ -7,8 +7,8 @@
     --bg-primary: #e3e4e8;
     --bg-surface: #d9dbe1;
     --bg-surface-subtle: #ced1d9;
-    --border-color: rgba(15, 23, 42, 0.075);
-    --border-hover: rgba(15, 23, 42, 0.16);
+    --border-color: rgba(15, 23, 42, 0.045);
+    --border-hover: rgba(15, 23, 42, 0.12);
     --text-primary: #09090b;
     --text-secondary: #20232b;
     --text-muted: #484c57;
@@ -21,8 +21,8 @@
     --bg-primary: #090a0d;
     --bg-surface: #101115;
     --bg-surface-subtle: #16171d;
-    --border-color: rgba(255, 255, 255, 0.07);
-    --border-hover: rgba(255, 255, 255, 0.15);
+    --border-color: rgba(255, 255, 255, 0.045);
+    --border-hover: rgba(255, 255, 255, 0.11);
     --text-primary: #f4f4f6;
     --text-secondary: #a0a3ad;
     --text-muted: #717582;
@@ -105,7 +105,7 @@
     border-width: 1px;
     border-color: var(--border-color);
     background: color-mix(in srgb, var(--bg-surface) 90%, transparent);
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.035);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.025);
   }
 
   .dark .surface-card {

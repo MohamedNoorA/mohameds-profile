@@ -21,8 +21,7 @@ const AmbientBanner = () => {
         </picture>
 
         {/* Gradient Scrim & Edge Masks ensuring normal contrast for text */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-background/40 to-background" />
+        <div className="absolute inset-0 bg-background/75" />
       </div>
 
       {/* Content Container */}

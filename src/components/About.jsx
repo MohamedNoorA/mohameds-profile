@@ -73,7 +73,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 max-w-2xl"
+          className="mb-14 max-w-2xl mx-auto text-center"
         >
           <span className="text-xs font-mono uppercase tracking-widest text-accent font-semibold block mb-2">
             01. Background &amp; Capabilities
@@ -203,7 +203,7 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="relative"
               >
-                <span className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-2 h-2 rounded-full bg-surface border-2 border-accent" />
+                <span className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-2 h-2 rounded-full bg-surface border border-accent" />
                 <span className="text-xs font-mono font-medium text-accent block mb-1">
                   {item.period}
                 </span>

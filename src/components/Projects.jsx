@@ -115,7 +115,7 @@ const CardVisual = ({ project }) => {
         </div>
         <div className="my-auto py-1">
           <div className="text-2xl font-mono font-bold text-primary">
-            24 × 7 = <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">168</span>
+            24 × 7 = <span className="text-accent">168</span>
           </div>
           <p className="text-[10px] text-muted font-mono mt-0.5">Visual arithmetic feedback</p>
         </div>
@@ -182,9 +182,9 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
         {/* Compact Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-3">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-widest font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 block mb-1">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-3 text-center sm:text-left">
+          <div className="w-full sm:w-auto">
+            <span className="text-xs font-mono uppercase tracking-widest font-bold text-accent block mb-1">
               PROJECTS
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">
@@ -202,7 +202,7 @@ const Projects = () => {
                 onClick={() => setPage(0)}
                 className={`px-3 py-1 rounded-md transition-all duration-150 ${
                   page === 0
-                    ? 'bg-gradient-to-r from-blue-500/15 via-indigo-500/15 to-purple-500/15 text-primary font-semibold border border-indigo-500/30'
+                    ? 'bg-accent-subtle text-primary font-semibold border border-accent/30'
                     : 'text-muted hover:text-primary'
                 }`}
               >
@@ -212,7 +212,7 @@ const Projects = () => {
                 onClick={() => setPage(1)}
                 className={`px-3 py-1 rounded-md transition-all duration-150 ${
                   page === 1
-                    ? 'bg-gradient-to-r from-blue-500/15 via-indigo-500/15 to-purple-500/15 text-primary font-semibold border border-indigo-500/30'
+                    ? 'bg-accent-subtle text-primary font-semibold border border-accent/30'
                     : 'text-muted hover:text-primary'
                 }`}
               >
@@ -253,7 +253,7 @@ const Projects = () => {
               {visibleProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="surface-card group rounded-xl backdrop-blur-xs p-3.5 sm:p-4 flex flex-col justify-between hover:border-indigo-500/30 hover:-translate-y-1 transition-all duration-200"
+                  className="surface-card group rounded-xl p-3.5 sm:p-4 flex flex-col justify-between hover:border-accent/40 transition-colors duration-200"
                 >
                     <div className="space-y-2.5">
                     {/* Visual Screenshot / Preview */}
@@ -262,7 +262,7 @@ const Projects = () => {
                     {/* Project Header */}
                     <div className="pt-1">
                       <div className="flex items-center justify-between text-xs font-mono mb-1">
-                        <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                        <span className="font-bold text-accent">
                           {project.number}
                         </span>
                         {project.status && (
@@ -271,7 +271,7 @@ const Projects = () => {
                           </span>
                         )}
                       </div>
-                      <h3 className="text-base font-bold tracking-tight text-primary group-hover:text-indigo-400 transition-colors">
+                      <h3 className="text-base font-bold tracking-tight text-primary group-hover:text-accent transition-colors">
                         {project.title}
                       </h3>
                       <p className="text-xs font-medium text-secondary line-clamp-1">
@@ -309,7 +309,7 @@ const Projects = () => {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-xs transform hover:-translate-y-0.5 transition-all duration-150"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-accent text-white hover:bg-accent-hover shadow-xs transition-colors duration-150"
                       >
                         <span>Live Demo</span>
                         <FaExternalLinkAlt className="w-2.5 h-2.5" />
@@ -321,7 +321,7 @@ const Projects = () => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-subtle/80 border border-border/40 hover:border-indigo-500/40 text-primary hover:bg-surface-subtle transform hover:-translate-y-0.5 transition-all duration-150"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-surface-subtle/80 border border-border/40 hover:border-accent/40 text-primary hover:bg-surface-subtle transition-colors duration-150"
                       >
                         <FaGithub className="w-3 h-3" />
                         <span>Source</span>
@@ -343,7 +343,7 @@ const Projects = () => {
               aria-label={`Go to project page ${i + 1}`}
               className={`h-1.5 rounded-full transition-all duration-200 ${
                 i === page
-                  ? 'w-6 bg-gradient-to-r from-blue-500 to-purple-600'
+                  ? 'w-6 bg-accent'
                   : 'w-1.5 bg-border-hover/60 hover:bg-muted'
               }`}
             />
